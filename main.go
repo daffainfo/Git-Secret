@@ -122,7 +122,7 @@ func getListFile(url string) {
 func google_api(contents string) {
 	re := regexp.MustCompile(`AIza[0-9A-Za-z-_]{35}`)
 	if re.MatchString(contents) {
-		res1 := re.FindAllString(contents, 2)
+		res1 := re.FindAllString(contents, 1)
 		fmt.Println(Green("[+] Google API Key: ", res1))
 	}
 }
@@ -136,7 +136,7 @@ func twitter_secret(contents string) {
 }
 
 func twilio_api(contents string) {
-	re := regexp.MustCompile(`(?i)twilio(.{0,20})?SK[0-9a-f]{32}`)
+	re := regexp.MustCompile(`55[0-9a-fA-F]{32}`)
 	if re.MatchString(contents) {
 		res1 := re.FindAllString(contents, 1)
 		fmt.Println(Green("[+] Twilio API: ", res1))
@@ -168,7 +168,6 @@ func dork_file(path string, contents string) {
 
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
-		// fmt.Println(scanner.Text())
 		re := regexp.MustCompile(scanner.Text())
 		if re.MatchString(contents) {
 			res1 := re.FindAllString(contents, 2)
