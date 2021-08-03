@@ -175,14 +175,6 @@ func gmail_oauth(contents string) {
 	}
 }
 
-func foursquare_key(contents string) {
-	re := regexp.MustCompile(`[0-9a-zA-Z_][5,31]`)
-	if re.MatchString(contents) {
-		res1 := re.FindAllString(contents, 1)
-		fmt.Println(Green("[+] Foursquare Key: ", res1))
-	}
-}
-
 func picatic_api(contents string) {
 	re := regexp.MustCompile(`sk_live_[0-9a-z]{32}`)
 	if re.MatchString(contents) {
@@ -380,7 +372,6 @@ func main() {
 			google_api(string(body))
 			github_oauth(string(body))
 			gmail_oauth(string(body))
-			foursquare_key(string(body))
 			paypal(string(body))
 			picatic_api(string(body))
 			stripe_api(string(body))
