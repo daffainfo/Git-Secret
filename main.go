@@ -119,6 +119,38 @@ func getListFile(url string) {
 	}
 }
 
+func twitter_access(contents string) {
+	re := regexp.MustCompile(`[1-9][ 0-9]+-[0-9a-zA-Z]{40}`)
+	if re.MatchString(contents) {
+		res1 := re.FindAllString(contents, 1)
+		fmt.Println(Green("[+] Twitter Access: ", res1))
+	}
+}
+
+func facebook_access(contents string) {
+	re := regexp.MustCompile(`EAACEdEose0cBA[0-9A-Za-z]+`)
+	if re.MatchString(contents) {
+		res1 := re.FindAllString(contents, 1)
+		fmt.Println(Green("[+] Facebook Access Token: ", res1))
+	}
+}
+
+func facebook_oauth(contents string) {
+	re := regexp.MustCompile(`[A-Za-z0-9]{125}`)
+	if re.MatchString(contents) {
+		res1 := re.FindAllString(contents, 1)
+		fmt.Println(Green("[+] Facebook OAuth 2.0: ", res1))
+	}
+}
+
+func instagram_oauth(contents string) {
+	re := regexp.MustCompile(`[0-9a-fA-F]{7}.[0-9a-fA-F]{32}`)
+	if re.MatchString(contents) {
+		res1 := re.FindAllString(contents, 1)
+		fmt.Println(Green("[+] Instagram OAuth 2.0: ", res1))
+	}
+}
+
 func google_api(contents string) {
 	re := regexp.MustCompile(`AIza[0-9A-Za-z-_]{35}`)
 	if re.MatchString(contents) {
@@ -127,11 +159,67 @@ func google_api(contents string) {
 	}
 }
 
-func twitter_secret(contents string) {
-	re := regexp.MustCompile(`(?i)twitter(.{0,20})?[0-9a-z]{35,44}`)
+func github_oauth(contents string) {
+	re := regexp.MustCompile(`[A-Za-z0-9_]{255}`)
 	if re.MatchString(contents) {
 		res1 := re.FindAllString(contents, 1)
-		fmt.Println(Green("[+] Twitter Secret: ", res1))
+		fmt.Println(Green("[+] Github OAuth 2.0: ", res1))
+	}
+}
+
+func gmail_oauth(contents string) {
+	re := regexp.MustCompile(`[0-9(+-[0-9A-Za-z_]{32}.apps.qooqleusercontent.com`)
+	if re.MatchString(contents) {
+		res1 := re.FindAllString(contents, 1)
+		fmt.Println(Green("[+] Gmail OAuth 2.0: ", res1))
+	}
+}
+
+func foursquare_key(contents string) {
+	re := regexp.MustCompile(`[0-9a-zA-Z_][5,31]`)
+	if re.MatchString(contents) {
+		res1 := re.FindAllString(contents, 1)
+		fmt.Println(Green("[+] Foursquare Key: ", res1))
+	}
+}
+
+func picatic_api(contents string) {
+	re := regexp.MustCompile(`sk_live_[0-9a-z]{32}`)
+	if re.MatchString(contents) {
+		res1 := re.FindAllString(contents, 1)
+		fmt.Println(Green("[+] Picatic API: ", res1))
+	}
+}
+
+func stripe_api(contents string) {
+	re := regexp.MustCompile(`sk_live_[0-9a-zA-Z]{24}`)
+	if re.MatchString(contents) {
+		res1 := re.FindAllString(contents, 1)
+		fmt.Println(Green("[+] Stripe API: ", res1))
+	}
+}
+
+func square_access(contents string) {
+	re := regexp.MustCompile(`sqOatp-[0-9A-Za-z-_]{22}`)
+	if re.MatchString(contents) {
+		res1 := re.FindAllString(contents, 1)
+		fmt.Println(Green("[+] Square Access Token: ", res1))
+	}
+}
+
+func square_oauth(contents string) {
+	re := regexp.MustCompile(`q0csp-[ 0-9A-Za-z-_]{43}`)
+	if re.MatchString(contents) {
+		res1 := re.FindAllString(contents, 1)
+		fmt.Println(Green("[+] Square Access Token: ", res1))
+	}
+}
+
+func paypal(contents string) {
+	re := regexp.MustCompile(`access_token,production$[0-9a-z]{161[0-9a,]{32}`)
+	if re.MatchString(contents) {
+		res1 := re.FindAllString(contents, 1)
+		fmt.Println(Green("[+] Paypal Access Token: ", res1))
 	}
 }
 
@@ -143,11 +231,27 @@ func twilio_api(contents string) {
 	}
 }
 
-func stripe_api(contents string) {
-	re := regexp.MustCompile(`(?i)stripe(.{0,20})?[sr]k_live_[0-9a-zA-Z]{24}`)
+func mailgun(contents string) {
+	re := regexp.MustCompile(`key-[0-9a-zA-Z]{32}`)
 	if re.MatchString(contents) {
 		res1 := re.FindAllString(contents, 1)
-		fmt.Println(Green("[+] Stripe API: ", res1))
+		fmt.Println(Green("[+] Mailgun API: ", res1))
+	}
+}
+
+func mailchimp(contents string) {
+	re := regexp.MustCompile(`[0-9a-f]{32}-us[0-9]{1,2}`)
+	if re.MatchString(contents) {
+		res1 := re.FindAllString(contents, 1)
+		fmt.Println(Green("[+] Mailgun API: ", res1))
+	}
+}
+
+func slack_api(contents string) {
+	re := regexp.MustCompile(`xox[baprs]-[0-9]{12}-[0-9]{12}-[0-9a-zA-Z]{24}`)
+	if re.MatchString(contents) {
+		res1 := re.FindAllString(contents, 1)
+		fmt.Println(Green("[+] Slack Webhook: ", res1))
 	}
 }
 
@@ -156,6 +260,54 @@ func slack_webhook(contents string) {
 	if re.MatchString(contents) {
 		res1 := re.FindAllString(contents, 1)
 		fmt.Println(Green("[+] Slack Webhook: ", res1))
+	}
+}
+
+func aws_access(contents string) {
+	re := regexp.MustCompile(`AKIA[0-9A-Z]{16}`)
+	if re.MatchString(contents) {
+		res1 := re.FindAllString(contents, 1)
+		fmt.Println(Green("[+] AWS Access Key ID: ", res1))
+	}
+}
+
+func aws_secret(contents string) {
+	re := regexp.MustCompile(`[0-9a-zA-Z/+]{40}`)
+	if re.MatchString(contents) {
+		res1 := re.FindAllString(contents, 1)
+		fmt.Println(Green("[+] AWS Secret Key: ", res1))
+	}
+}
+
+func gcp_oauth(contents string) {
+	re := regexp.MustCompile(`[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}`)
+	if re.MatchString(contents) {
+		res1 := re.FindAllString(contents, 1)
+		fmt.Println(Green("[+] Google Cloud Platform OAuth 2.0: ", res1))
+	}
+}
+
+func gcp_api(contents string) {
+	re := regexp.MustCompile(`[A-Za-z0-9_]{21}--[A-Za-z0-9_]{8}`)
+	if re.MatchString(contents) {
+		res1 := re.FindAllString(contents, 1)
+		fmt.Println(Green("[+] Google Cloud Platform API Key: ", res1))
+	}
+}
+
+func heroku_api(contents string) {
+	re := regexp.MustCompile(`[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}`)
+	if re.MatchString(contents) {
+		res1 := re.FindAllString(contents, 1)
+		fmt.Println(Green("[+] Google Cloud Platform API Key: ", res1))
+	}
+}
+
+func heroku_oauth(contents string) {
+	re := regexp.MustCompile(`[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}`)
+	if re.MatchString(contents) {
+		res1 := re.FindAllString(contents, 1)
+		fmt.Println(Green("[+] Google Cloud Platform API Key: ", res1))
 	}
 }
 
@@ -221,11 +373,30 @@ func main() {
 				dork_file(dorks, string(body))
 			}
 
+			twitter_access(string(body))
+			facebook_access(string(body))
+			facebook_oauth(string(body))
+			instagram_oauth(string(body))
 			google_api(string(body))
-			twitter_secret(string(body))
-			twilio_api(string(body))
+			github_oauth(string(body))
+			gmail_oauth(string(body))
+			foursquare_key(string(body))
+			paypal(string(body))
+			picatic_api(string(body))
 			stripe_api(string(body))
+			square_access(string(body))
+			square_oauth(string(body))
+			twilio_api(string(body))
 			slack_webhook(string(body))
+			mailgun(string(body))
+			mailchimp(string(body))
+			slack_api(string(body))
+			aws_access(string(body))
+			aws_secret(string(body))
+			gcp_oauth(string(body))
+			gcp_api(string(body))
+			heroku_api(string(body))
+			heroku_oauth(string(body))
 		}
 	}
 }
