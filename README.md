@@ -17,6 +17,21 @@
 
 ```go get github.com/daffainfo/Git-Secret```
 
+## How to Use
+
+```
+./Git-Secret
+```
+
+* For path contain dorks, you can fill it with some keywords, for example
+> keyword.txt
+```
+password
+username
+keys
+access_keys
+```
+
 ### Reference 📚
 
 - https://github.com/odomojuli/RegExAPI
