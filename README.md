@@ -6,8 +6,9 @@
 ![](https://img.shields.io/github/stars/daffainfo/Git-Secret)
 ![](https://img.shields.io/github/last-commit/daffainfo/Git-Secret)
 
-## Update V1.0 🚀 
-- Added some API Key checker
+## Update V1.0.1 🚀 
+- Removing some checkers
+- Adding example file contains github dorks
 
 ## Screenshoot 📷
 
