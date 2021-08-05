@@ -135,35 +135,11 @@ func facebook_access(contents string) {
 	}
 }
 
-func facebook_oauth(contents string) {
-	re := regexp.MustCompile(`[A-Za-z0-9]{125}`)
-	if re.MatchString(contents) {
-		res1 := re.FindAllString(contents, 1)
-		fmt.Println(Green("[+] Facebook OAuth 2.0: ", res1))
-	}
-}
-
-func instagram_oauth(contents string) {
-	re := regexp.MustCompile(`[0-9a-fA-F]{7}.[0-9a-fA-F]{32}`)
-	if re.MatchString(contents) {
-		res1 := re.FindAllString(contents, 1)
-		fmt.Println(Green("[+] Instagram OAuth 2.0: ", res1))
-	}
-}
-
 func google_api(contents string) {
 	re := regexp.MustCompile(`AIza[0-9A-Za-z-_]{35}`)
 	if re.MatchString(contents) {
 		res1 := re.FindAllString(contents, 1)
 		fmt.Println(Green("[+] Google API Key: ", res1))
-	}
-}
-
-func github_oauth(contents string) {
-	re := regexp.MustCompile(`[A-Za-z0-9_]{255}`)
-	if re.MatchString(contents) {
-		res1 := re.FindAllString(contents, 1)
-		fmt.Println(Green("[+] Github OAuth 2.0: ", res1))
 	}
 }
 
@@ -231,14 +207,6 @@ func mailgun(contents string) {
 	}
 }
 
-func mailchimp(contents string) {
-	re := regexp.MustCompile(`[0-9a-f]{32}-us[0-9]{1,2}`)
-	if re.MatchString(contents) {
-		res1 := re.FindAllString(contents, 1)
-		fmt.Println(Green("[+] Mailgun API: ", res1))
-	}
-}
-
 func slack_api(contents string) {
 	re := regexp.MustCompile(`xox[baprs]-[0-9]{12}-[0-9]{12}-[0-9a-zA-Z]{24}`)
 	if re.MatchString(contents) {
@@ -260,46 +228,6 @@ func aws_access(contents string) {
 	if re.MatchString(contents) {
 		res1 := re.FindAllString(contents, 1)
 		fmt.Println(Green("[+] AWS Access Key ID: ", res1))
-	}
-}
-
-func aws_secret(contents string) {
-	re := regexp.MustCompile(`[0-9a-zA-Z/+]{40}`)
-	if re.MatchString(contents) {
-		res1 := re.FindAllString(contents, 1)
-		fmt.Println(Green("[+] AWS Secret Key: ", res1))
-	}
-}
-
-func gcp_oauth(contents string) {
-	re := regexp.MustCompile(`[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}`)
-	if re.MatchString(contents) {
-		res1 := re.FindAllString(contents, 1)
-		fmt.Println(Green("[+] Google Cloud Platform OAuth 2.0: ", res1))
-	}
-}
-
-func gcp_api(contents string) {
-	re := regexp.MustCompile(`[A-Za-z0-9_]{21}--[A-Za-z0-9_]{8}`)
-	if re.MatchString(contents) {
-		res1 := re.FindAllString(contents, 1)
-		fmt.Println(Green("[+] Google Cloud Platform API Key: ", res1))
-	}
-}
-
-func heroku_api(contents string) {
-	re := regexp.MustCompile(`[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}`)
-	if re.MatchString(contents) {
-		res1 := re.FindAllString(contents, 1)
-		fmt.Println(Green("[+] Google Cloud Platform API Key: ", res1))
-	}
-}
-
-func heroku_oauth(contents string) {
-	re := regexp.MustCompile(`[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}`)
-	if re.MatchString(contents) {
-		res1 := re.FindAllString(contents, 1)
-		fmt.Println(Green("[+] Google Cloud Platform API Key: ", res1))
 	}
 }
 
@@ -367,10 +295,7 @@ func main() {
 
 			twitter_access(string(body))
 			facebook_access(string(body))
-			facebook_oauth(string(body))
-			instagram_oauth(string(body))
 			google_api(string(body))
-			github_oauth(string(body))
 			gmail_oauth(string(body))
 			paypal(string(body))
 			picatic_api(string(body))
@@ -380,14 +305,8 @@ func main() {
 			twilio_api(string(body))
 			slack_webhook(string(body))
 			mailgun(string(body))
-			mailchimp(string(body))
 			slack_api(string(body))
 			aws_access(string(body))
-			aws_secret(string(body))
-			gcp_oauth(string(body))
-			gcp_api(string(body))
-			heroku_api(string(body))
-			heroku_oauth(string(body))
 		}
 	}
 }
