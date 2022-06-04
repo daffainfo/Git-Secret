@@ -6,9 +6,10 @@
 ![](https://img.shields.io/github/stars/daffainfo/Git-Secret)
 ![](https://img.shields.io/github/last-commit/daffainfo/Git-Secret)
 
-## Update V1.0.1 🚀
+## Update V1.0.2 🚀
 - Removing some checkers
 - Adding example file contains github dorks
+- Add support to `go install` command ([issue #5](https://github.com/daffainfo/Git-Secret/issues/5))
 
 ## Screenshoot 📷
 
