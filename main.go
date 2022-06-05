@@ -59,12 +59,12 @@ type Commit struct {
 
 func show_banner() {
 	fmt.Println(Blue(`
-____ _ ___    ____ ____ ____ ____ ____ ___ 
-| __ |  |  __ [__  |___ |    |__/ |___  |  
-|__] |  |     ___] |___ |___ |  \ |___  |  
+____ _ ___    ____ ____ ____ ____ ____ ___
+| __ |  |  __ [__  |___ |    |__/ |___  |
+|__] |  |     ___] |___ |___ |  \ |___  |
 
 Author: Muhammad Daffa
-Version: 1.0								   
+Version: 1.0
 	`))
 }
 
@@ -259,6 +259,10 @@ func main() {
 
 	fmt.Println(Blue("Input URL"))
 	fmt.Scanln(&url)
+	if _, err := fmt.Scanln(&url); err != nil {
+		fmt.Print(Red("No URL provided"))
+		os.Exit(1)
+	}
 
 	fmt.Println(Blue("\nInput path file contain dorks (Leave it blank if you dont have it)"))
 	fmt.Scanln(&dorks)
