@@ -258,7 +258,10 @@ func main() {
 	show_banner()
 
 	fmt.Println(Blue("Input URL"))
-	fmt.Scanln(&url)
+	if _, err := fmt.Scanln(&url); err != nil {
+		fmt.Print(Red("No URL provided"))
+		os.Exit(1)
+	}
 
 	fmt.Println(Blue("\nInput path file contain dorks (Leave it blank if you dont have it)"))
 	fmt.Scanln(&dorks)
