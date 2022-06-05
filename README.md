@@ -6,9 +6,10 @@
 ![](https://img.shields.io/github/stars/daffainfo/Git-Secret)
 ![](https://img.shields.io/github/last-commit/daffainfo/Git-Secret)
 
-## Update V1.0.1 🚀 
+## Update V1.0.2 🚀
 - Removing some checkers
 - Adding example file contains github dorks
+- Add support to `go install` command ([issue #5](https://github.com/daffainfo/Git-Secret/issues/5))
 
 ## Screenshoot 📷
 
@@ -16,7 +17,14 @@
 
 ## How to Install
 
-```go get github.com/daffainfo/Git-Secret```
+To install the latest version:
+
+```
+go install github.com/daffainfo/Git-Secret@latest
+```
+
+Alternatively, you can clone this repo and build the project by running
+`go build` inside the cloned repo.
 
 ## How to Use
 
